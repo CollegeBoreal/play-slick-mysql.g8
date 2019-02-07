@@ -1,7 +1,7 @@
-name := "300098957"
-description := "Example Play App set up to use Slick with Postgres and Evolutions"
+name := "$name$"
+description := "$app_description$"
 version := "1.0-SNAPSHOT"
-organization := "com.excella"
+organization := "$organization$"
 scalaVersion := "2.12.6"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala, SwaggerPlugin)
@@ -21,7 +21,6 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-slick-evolutions" % "3.0.1",
   "com.typesafe.play" %% "play-slick" % "3.0.1",
   "org.postgresql" % "postgresql" % "42.2.2",
-  "mysql" % "mysql-connector-java" % "8.0.11",
   "org.webjars" % "swagger-ui" % "3.13.3",
   "com.h2database" % "h2" % "1.4.197" % Test,
   "commons-io" % "commons-io" % "2.6",
@@ -32,7 +31,7 @@ libraryDependencies ++= Seq(
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature",
   "-language:postfixOps", "-language:reflectiveCalls")
 
-coverageExcludedPackages := "<empty>;router\\..*;dao\\..*;handlers\\.TrailingSlashRequestHandler"
+coverageExcludedPackages := "<empty>;router\\\\..*;dao\\\\..*;handlers\\\\.TrailingSlashRequestHandler"
 coverageMinimum := 75
 coverageFailOnMinimum := true
 
