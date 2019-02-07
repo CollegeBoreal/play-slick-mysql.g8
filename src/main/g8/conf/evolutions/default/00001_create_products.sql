@@ -3,10 +3,11 @@
 # --- !Ups
 
 CREATE TABLE products (
-    id serial PRIMARY KEY,
-    sku varchar(31) UNIQUE NOT NULL,
-    name varchar(127) NOT NULL,
-    description varchar(511) NOT NULL
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '	',
+  `sku` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NULL,
+  `description` TEXT NULL,
+  PRIMARY KEY (`id`)
 );
 
 # --- !Downs
