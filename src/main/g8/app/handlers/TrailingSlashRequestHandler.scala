@@ -28,7 +28,7 @@ class TrailingSlashRequestHandler @Inject()(router: Router,
       } else {
         origReq.withTarget(
           origReq.target
-            .withUriString(path + s"?${origReq.rawQueryString}")
+            .withUriString(path + s"?$"$"${origReq.rawQueryString}")
             .withPath(path))
       }
     } else {
