@@ -16,9 +16,6 @@ scalaSource in Test := baseDirectory.value / "tests"
 libraryDependencies ++= Seq(
   guice,
   ws,
-  "com.typesafe.play" %% "play-slick-evolutions" % "3.0.1",
-  "com.typesafe.play" %% "play-slick" % "3.0.1",
-  "com.h2database" % "h2" % "1.4.197" % Test,
   "commons-io" % "commons-io" % "2.6",
   "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test,
   "com.typesafe.akka" %% "akka-testkit" % "2.5.11" % Test,
