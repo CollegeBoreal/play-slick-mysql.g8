@@ -1,3 +1,7 @@
+
+
+swaggerDomainNameSpaces := Seq("models")
+
 // J2EE JAXB Related
 libraryDependencies ++= {
   val xmlBindVersion = "2.2.11"
