@@ -2,6 +2,8 @@
 
 swaggerDomainNameSpaces := Seq("models")
 
+libraryDependencies += "org.webjars" % "swagger-ui" % "3.13.3"
+
 // J2EE JAXB Related
 libraryDependencies ++= {
   val xmlBindVersion = "2.2.11"
