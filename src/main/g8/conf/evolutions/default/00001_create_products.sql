@@ -7,6 +7,7 @@ CREATE TABLE products (
   `sku` VARCHAR(45) NULL,
   `name` VARCHAR(45) NULL,
   `description` TEXT NULL,
+  `updated` DATETIME NULL,
   PRIMARY KEY (`id`)
 );
 
