@@ -12,7 +12,8 @@ import slick.jdbc.JdbcProfile
 
 import scala.concurrent.{ExecutionContext, Future}
 
-trait ProductsComponent { self: HasDatabaseConfigProvider[JdbcProfile] =>
+trait ProductsComponent {
+  self: HasDatabaseConfigProvider[JdbcProfile] =>
   import profile.api._
   import slick.lifted.ProvenShape
 
@@ -25,12 +26,22 @@ trait ProductsComponent { self: HasDatabaseConfigProvider[JdbcProfile] =>
       column[String]("name", O.Length(127, varying = true))
     def description: Rep[String] =
       column[String]("description", O.Length(511, varying = true))
+    def updated: Rep[java.time.LocalDateTime] =
+      column[java.time.LocalDateTime]("updated")
     // scalastyle:on magic.number
 
     // scalastyle:off method.name
     override def * : ProvenShape[Product] =
-      (id.?, sku, name, description) <> (Product.tupled, Product.unapply)
+      (sku, name, description, updated, id.?).mapTo[Product]
     // scalastyle: on method.name
+
+    implicit val localDateTimeColumnType
+      : BaseColumnType[java.time.LocalDateTime] =
+      MappedColumnType.base[java.time.LocalDateTime, java.sql.Timestamp](
+        java.sql.Timestamp.valueOf,
+        _.toLocalDateTime
+      )
+
   }
 }
 
