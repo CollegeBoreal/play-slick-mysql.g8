@@ -17,6 +17,8 @@ trait ProductsComponent {
   import profile.api._
   import slick.lifted.ProvenShape
 
+  /*
+   */
   class ProductTable(tag: Tag) extends Table[Product](tag, "products") {
     def id: Rep[Int] = column[Int]("id", O.PrimaryKey, O.AutoInc)
 
@@ -32,7 +34,7 @@ trait ProductsComponent {
 
     // scalastyle:off method.name
     override def * : ProvenShape[Product] =
-      (sku, name, description, updated, id.?).mapTo[Product]
+      (id.?, sku, name, description, updated).mapTo[Product]
     // scalastyle: on method.name
 
     implicit val localDateTimeColumnType
