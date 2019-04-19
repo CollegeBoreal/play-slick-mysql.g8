@@ -13,4 +13,4 @@ CREATE TABLE PRODUCTS (
 
 # --- !Downs
 
-DROP TABLE products;
+DROP TABLE PRODUCTS;
