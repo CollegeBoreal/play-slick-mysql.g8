@@ -10,26 +10,28 @@ import models.Product
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
 
+import java.time.LocalDateTime
+import java.sql.Timestamp
+
 import scala.concurrent.{ExecutionContext, Future}
 
-trait ProductsComponent {
-  self: HasDatabaseConfigProvider[JdbcProfile] =>
+trait ProductsComponent { self: HasDatabaseConfigProvider[JdbcProfile] =>
+
   import profile.api._
   import slick.lifted.ProvenShape
 
   /*
    */
   class ProductTable(tag: Tag) extends Table[Product](tag, "products") {
-    def id: Rep[Int] = column[Int]("id", O.PrimaryKey, O.AutoInc)
+
+    import ProductTable._
 
     // scalastyle:off magic.number
+    def id: Rep[Int] = column[Int]("id", O.PrimaryKey, O.AutoInc)
     def sku: Rep[String] = column[String]("sku", O.Length(31, varying = true))
-    def name: Rep[String] =
-      column[String]("name", O.Length(127, varying = true))
-    def description: Rep[String] =
-      column[String]("description", O.Length(511, varying = true))
-    def updated: Rep[java.time.LocalDateTime] =
-      column[java.time.LocalDateTime]("updated")
+    def name: Rep[String] = column[String]("name", O.Length(127, varying = true))
+    def description: Rep[String] = column[String]("description", O.Length(511, varying = true))
+    def updated: Rep[LocalDateTime] = column[LocalDateTime]("updated")
     // scalastyle:on magic.number
 
     // scalastyle:off method.name
@@ -37,13 +39,14 @@ trait ProductsComponent {
       (id.?, sku, name, description, updated).mapTo[Product]
     // scalastyle: on method.name
 
-    implicit val localDateTimeColumnType
-      : BaseColumnType[java.time.LocalDateTime] =
-      MappedColumnType.base[java.time.LocalDateTime, java.sql.Timestamp](
-        java.sql.Timestamp.valueOf,
+  }
+
+  object ProductTable {
+    implicit val localDateTimeColumnType: BaseColumnType[LocalDateTime] =
+      MappedColumnType.base[LocalDateTime, Timestamp](
+        Timestamp.valueOf,
         _.toLocalDateTime
       )
-
   }
 }
 
