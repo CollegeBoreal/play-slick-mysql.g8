@@ -6,4 +6,4 @@ case class Product(sku: String,
                    name: String,
                    description: String,
                    updated: LocalDateTime,
-                   id: Long = 0L)
+                   product: Long = 0L)
