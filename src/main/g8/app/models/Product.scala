@@ -1,7 +1,9 @@
 package models
 
-case class Product(id: Option[Int],
-                   sku: String,
+import java.time.LocalDateTime
+
+case class Product(sku: String,
                    name: String,
                    description: String,
-                   updated: java.time.LocalDateTime)
+                   updated: LocalDateTime,
+                   id: Long = 0L)
