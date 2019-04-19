@@ -1,8 +1,8 @@
-# Sample data for products schema
+# Sample data for PRODUCTS schema
 
 # --- !Ups
 
-INSERT INTO products (sku, name, description, updated)
+INSERT INTO PRODUCTS (sku, name, description, updated)
 VALUES ('bppen-red-na', 'Excella Pen', 'Ballpoint click pen with red body and black clicker, white Excella logo', NOW()),
        ('stynot-wht-std', 'Excella Sticky Notes', 'Standard-sized sticky notes with red and black Excella branding', NOW()),
        ('mug-gry-sma', 'Excella Mug', '8oz gray mug with white Excella branding and red-orange interior', NOW()),
@@ -10,7 +10,7 @@ VALUES ('bppen-red-na', 'Excella Pen', 'Ballpoint click pen with red body and bl
 
 # --- !Downs
 
-DELETE FROM products
+DELETE FROM PRODUCTS
  WHERE sku IN (
     'bppen-red-na',
     'stynot-wht-std',
