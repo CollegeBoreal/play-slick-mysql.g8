@@ -27,7 +27,7 @@ trait ProductsComponent { self: HasDatabaseConfigProvider[JdbcProfile] =>
     import ProductTable._
 
     // scalastyle:off magic.number
-    def id: Rep[Int] = column[Int]("id", O.PrimaryKey, O.AutoInc)
+    def id: Rep[Long] = column[Long]("id", O.PrimaryKey, O.AutoInc)
     def sku: Rep[String] = column[String]("sku", O.Length(31, varying = true))
     def name: Rep[String] = column[String]("name", O.Length(127, varying = true))
     def description: Rep[String] = column[String]("description", O.Length(511, varying = true))
