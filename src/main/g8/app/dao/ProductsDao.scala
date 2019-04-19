@@ -36,7 +36,7 @@ trait ProductsComponent { self: HasDatabaseConfigProvider[JdbcProfile] =>
 
     // scalastyle:off method.name
     override def * : ProvenShape[Product] =
-      (id.?, sku, name, description, updated).mapTo[Product]
+      (sku, name, description, updated, id).mapTo[Product]
     // scalastyle: on method.name
 
   }
