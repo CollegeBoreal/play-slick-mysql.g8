@@ -13,7 +13,6 @@ abstract class SlickInMemorySpec
     with GuiceOneAppPerSuite
     with BeforeAndAfter {
   implicit override lazy val app: Application = {
-    //val dbName = s"play-test-${scala.util.Random.nextInt()}"
     val dbName = "playdb-test"
     val dbUrl = s"jdbc:mysql://localhost/$"$"$dbName?useSSL=false"
 
@@ -21,7 +20,7 @@ abstract class SlickInMemorySpec
       .configure(
         Map(
           "slick.dbs.default" -> Map(
-            "profile" -> "slick.jdbc.MySQLProfile$",
+            "profile" -> "slick.jdbc.MySQLProfile$"$"$",
             "db" -> Map(
               "driver" -> "com.mysql.cj.jdbc.Driver",
               "url" -> dbUrl,
