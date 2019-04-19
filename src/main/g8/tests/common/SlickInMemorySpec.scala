@@ -15,7 +15,7 @@ abstract class SlickInMemorySpec
   implicit override lazy val app: Application = {
     //val dbName = s"play-test-${scala.util.Random.nextInt()}"
     val dbName = "playdb-test"
-    val dbUrl = s"jdbc:mysql://localhost/$dbName?useSSL=false"
+    val dbUrl = s"jdbc:mysql://localhost/$"$"$dbName?useSSL=false"
 
     new GuiceApplicationBuilder()
       .configure(
