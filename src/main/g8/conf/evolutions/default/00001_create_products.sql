@@ -2,13 +2,13 @@
 
 # --- !Ups
 
-CREATE TABLE products (
-  `id` INT NOT NULL AUTO_INCREMENT COMMENT '	',
+CREATE TABLE PRODUCTS (
+  `product` INT NOT NULL AUTO_INCREMENT COMMENT '	',
   `sku` VARCHAR(45) NULL,
   `name` VARCHAR(45) NULL,
   `description` TEXT NULL,
   `updated` DATETIME NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`product`)
 );
 
 # --- !Downs
