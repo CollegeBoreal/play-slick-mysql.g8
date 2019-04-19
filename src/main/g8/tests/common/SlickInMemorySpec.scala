@@ -14,7 +14,7 @@ abstract class SlickInMemorySpec
     with BeforeAndAfter {
   implicit override lazy val app: Application = {
     //val dbName = s"play-test-${scala.util.Random.nextInt()}"
-    val dbName = "playdb"
+    val dbName = "playdb-test"
     val dbUrl = s"jdbc:mysql://localhost/$dbName?useSSL=false"
 
     new GuiceApplicationBuilder()
