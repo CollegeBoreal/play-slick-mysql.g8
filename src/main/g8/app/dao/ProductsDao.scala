@@ -22,21 +22,21 @@ trait ProductsComponent { self: HasDatabaseConfigProvider[JdbcProfile] =>
 
   /*
    */
-  class ProductTable(tag: Tag) extends Table[Product](tag, "products") {
+  class ProductTable(tag: Tag) extends Table[Product](tag, "PRODUCTS") {
 
     import ProductTable._
 
     // scalastyle:off magic.number
-    def id: Rep[Long] = column[Long]("id", O.PrimaryKey, O.AutoInc)
     def sku: Rep[String] = column[String]("sku", O.Length(31, varying = true))
     def name: Rep[String] = column[String]("name", O.Length(127, varying = true))
     def description: Rep[String] = column[String]("description", O.Length(511, varying = true))
     def updated: Rep[LocalDateTime] = column[LocalDateTime]("updated")
+    def product: Rep[Long] = column[Long]("product", O.PrimaryKey, O.AutoInc)
     // scalastyle:on magic.number
 
     // scalastyle:off method.name
     override def * : ProvenShape[Product] =
-      (sku, name, description, updated, id).mapTo[Product]
+      (sku, name, description, updated, product).mapTo[Product]
     // scalastyle: on method.name
 
   }
