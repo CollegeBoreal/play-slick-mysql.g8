@@ -13,7 +13,7 @@ abstract class SlickInMemorySpec
     with GuiceOneAppPerSuite
     with BeforeAndAfter {
   implicit override lazy val app: Application = {
-    val dbName = "playdb-test"
+    val dbName = "playdb_test"
     val dbUrl = s"jdbc:mysql://localhost/$"$"$dbName?useSSL=false"
 
     new GuiceApplicationBuilder()
